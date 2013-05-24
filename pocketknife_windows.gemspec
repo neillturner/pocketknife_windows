@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pocketknife_windows}
-  s.version = "0.1.0"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Neill Turner"]
@@ -38,6 +38,8 @@ With pocketknife, all of your cookbooks, roles and nodes are stored in easy-to-u
     "lib/pocketknife_windows/node.rb",
     "lib/pocketknife_windows/node_manager.rb",
     "lib/pocketknife_windows/version.rb",
+    "tar/readme.txt", 
+    "tar/tar.exe",
     "pocketknife_windows.gemspec",
     "spec/pocketknife_execution_error_spec.rb",
     "spec/pocketknife_node_manager_spec.rb",
