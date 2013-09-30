@@ -36,9 +36,15 @@ class Pocketknife_windows
           if self.pocketknife.user != nil and self.pocketknife.user != ""
              user = self.pocketknife.user
           end
+        
           if self.pocketknife.ssh_key != nil and self.pocketknife.ssh_key != ""
-             puts "Connecting to.... #{self.name} as user #{user} with ssh key"
-             rye = Rye::Box.new(self.name, {:user => user, :keys => self.pocketknife.ssh_key })
+             if self.pocketknife.local_port != nil and self.pocketknife.local_port != ""
+                puts "*** Connecting to ssh tunnel ..... via localhost port #{self.pocketknife.local_port} as user #{user} with ssh key *** "
+                rye = Rye::Box.new("localhost", {:user => user, :port => self.pocketknife.local_port, :keys => self.pocketknife.ssh_key}) 
+             else   
+                puts "Connecting to.... #{self.name} as user #{user} with ssh key"
+                rye = Rye::Box.new(self.name, {:user => user, :keys => self.pocketknife.ssh_key })
+             end   
           elsif self.pocketknife.password != nil and self.pocketknife.password != ""
              puts "Connecting to.... #{self.name} as user #{user} with password"
              rye = Rye::Box.new(self.name, {:user => user, :password => self.pocketknife.password })   

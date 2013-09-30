@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{pocketknife_windows}
-  s.version = "0.1.5"
+  s.version = "0.1.10"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Neill Turner"]
-  s.date = %q{2012-06-25}
+  s.date = %q{2013-09-26}
   s.description = %q{pocketknife is a devops tool for managing computers running chef-solo, powered by Opscode Chef.
 
 Using pocketknife, you create a project that describes the configuration of your computers and then deploy it to bring them to their intended state.

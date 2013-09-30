@@ -120,6 +120,11 @@ OPTIONS:
       parser.on("-I", "--noinstall", "Don't install Chef automatically") do |v|
         pocketknife_windows.can_install = false
       end
+      
+      parser.on("-l", "--localport LOCAL_PORT", "use a local port to access an ssh tunnel") do |name|
+        options[:local_port] = name
+        pocketknife_windows.local_port = name
+      end        
 
       begin
         arguments = parser.parse!
@@ -162,7 +167,7 @@ OPTIONS:
   #
   # @return [String] A version string.
   def self.version
-    return "0.0.1"
+    return "0.1.9"
   end
 
   # Amount of detail to display? true means verbose, nil means normal, false means quiet.
@@ -176,6 +181,9 @@ OPTIONS:
   
   # password for ssh access instead of key
   attr_accessor :password
+  
+  # key for  local port.
+  attr_accessor :local_port  
   
   # upload directory for user 
   attr_accessor :directory
