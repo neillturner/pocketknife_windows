@@ -288,6 +288,10 @@ HERE
       command = "c:\\opscode\\chef\\bin\\chef-solo -c c:\\chef\\solo.rb -j #{WIN_NODE_JSON}"
       command << " -l debug" if self.pocketknife.verbosity == true
       self.execute(command, true)
+	  self.execute <<HERE
+if exist "#{WIN_POCKETKNIFE}" rmdir /Q /S "#{WIN_POCKETKNIFE}"  &&
+if exist "#{WIN_POCKETKNIFE_CACHE}" rmdir /Q /S  "#{WIN_POCKETKNIFE_CACHE}" 
+HERE
       self.say("Finished applying!")
     end
 
